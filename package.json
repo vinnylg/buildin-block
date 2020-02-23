@@ -1,0 +1,26 @@
+{
+  "name": "buildin-block",
+  "version": "1.0.0",
+  "description": "Site lego or something seems",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "npm run start --prefix frontend",
+    "backend": "npm run dev --prefix backend",
+    "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinnylg/buildin-block.git"
+  },
+  "author": "Vinícius de Lima Gonçalves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinnylg/buildin-block/issues"
+  },
+  "homepage": "https://github.com/vinnylg/buildin-block#readme",
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
