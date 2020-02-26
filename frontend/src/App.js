@@ -1,42 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios'
-import logo from './logo.svg';
-import './App.css';
+import React, { useState} from 'react';
+
+import AdminApp from './components/admin/AdminApp'
+import SiteApp from './components/site/SiteApp'
 
 function App() {
+  const [ editMode, setEditMode ] = useState(true)
 
-  const [ data, setData ] = useState(null)
-
-  useEffect(()=>{
-    const test = async () => {
-      let res = await axios('/test')
-      setData(res.data)
-    }
-    test()
-  })
-  
+  const changeMode = () => setEditMode(!editMode)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>
-          {data}
-        </div>
-      </header>
-    </div>
-  );
+    <>
+     { editMode ? (<AdminApp />) : (<SiteApp />) }
+    </>
+  )
 }
 
-export default App;
+export default App

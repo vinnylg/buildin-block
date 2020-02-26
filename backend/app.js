@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req,res) => {
   res.send("INDEX OKAY")
 });
+
 app.get('/test', (req,res) => {
   res.send("TEST OKAY")
 })
