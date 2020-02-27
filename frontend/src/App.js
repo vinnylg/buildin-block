@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-     { editMode ? (<AdminApp />) : (<SiteApp />) }
+     { editMode ? (<AdminApp viewMode={changeMode}/>) : (<SiteApp />) }
     </>
   )
 }

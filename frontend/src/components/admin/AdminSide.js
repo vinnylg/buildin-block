@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 
 function AdminSide( props ){
@@ -13,15 +12,10 @@ function AdminSide( props ){
     border-top: 2px solid #111;
     transition: 0.5s;
     display: inline-grid;
-    overflow: scroll;
   `
   return (
     props.open &&
     <AdminSide>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
     </AdminSide>
   )
 }
