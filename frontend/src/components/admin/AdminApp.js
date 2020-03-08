@@ -15,32 +15,25 @@ const Styled = styled.div `
 `
 
 function AdminApp(){
-  const [ leftSide, setLeftSide ] = useState(true)
-  const [ workspace, setWorkspace ] = useState({active: true})
+  const [ leftSide, setLeftSide ] = useState(false)
+  const [ workspaceSize, setWorkspaceSize ] = useState(null)
 
   const handleLeftSide = () => setLeftSide(!leftSide)
-  const handleWorkspace = () => setWorkspace(!workspace)
 
   const withSizeHOC = withSize()
-  withSizeHOC(AdminBar)
+  withSizeHOC(Workspace)
 
   const onSizeWorkspace = ( size ) => {
-    setWorkspace({
-      ...workspace,
-      size: size
-    })
-    console.log(' Workspace size is ', workspace.size)
+    setWorkspaceSize(size)
   }
 
   return (
     <Styled>
-      <AdminBar openLeftSide={handleLeftSide} openWorkspace={handleWorkspace}/>
+      <AdminBar openLeftSide={handleLeftSide} />
       <AdminSide open={leftSide}/>
-      { workspace &&
-        <Workspace leftSide={leftSide} onSize={onSizeWorkspace}>
-          <Page size={workspace.size}/>
-        </Workspace>
-      }
+      <Workspace leftSide={leftSide} onSize={onSizeWorkspace}>
+        <Page size={workspaceSize}/>
+      </Workspace>
     </Styled>
   )
 }

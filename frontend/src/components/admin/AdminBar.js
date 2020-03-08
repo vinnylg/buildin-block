@@ -13,8 +13,6 @@ function AdminBar( props ){
     <Navbar bg="dark" variant="dark" sticky="top">
       <Navbar.Brand>Admin</Navbar.Brand>
       <ButtonStyled onClick={props.openLeftSide}>Left</ButtonStyled>
-      <ButtonStyled onClick={props.openWorkspace}>Workspace</ButtonStyled>
-      <ButtonStyled onClick={props.sizeWorkspace}>SizeWorkspace</ButtonStyled>
     </Navbar>
   )
 }

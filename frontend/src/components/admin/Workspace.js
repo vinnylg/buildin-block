@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import sizeMe from 'react-sizeme'
 
@@ -9,8 +9,6 @@ const WorkspaceDiv = styled.div `
 `
 
 function Workspace( props ){
-  const [ size, setSize ] = useState(props.size)
-
   return(
     <WorkspaceDiv style={{ marginLeft: props.leftSide?'250px':'0' }}>
       { props.children }
