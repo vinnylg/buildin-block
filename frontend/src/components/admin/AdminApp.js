@@ -1,42 +1,47 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { SizeMe } from 'react-sizeme'
+import { withSize } from 'react-sizeme'
 
 import AdminBar from './AdminBar'
 import AdminSide from './AdminSide'
-import Page from '../Page'
+import Workspace from './Workspace'
+import Page from '../abstracts/Page'
+
+const Styled = styled.div `
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #808080;
+`
 
 function AdminApp(){
   const [ leftSide, setLeftSide ] = useState(true)
-  const [ workspace, setWorkspace ] = useState(true)
+  const [ workspace, setWorkspace ] = useState({active: true})
 
   const handleLeftSide = () => setLeftSide(!leftSide)
   const handleWorkspace = () => setWorkspace(!workspace)
 
-  const AdminApp = styled.div `
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #808080;
-  `
+  const withSizeHOC = withSize()
+  withSizeHOC(AdminBar)
 
-  const Workspace = styled.div `
-    position: relative;
-    margin-left: ${leftSide?'250px':'0'};
-    border: 5px solid blue;
-    background-color: #f0f0f0;
-  `
+  const onSizeWorkspace = ( size ) => {
+    setWorkspace({
+      ...workspace,
+      size: size
+    })
+    console.log(' Workspace size is ', workspace.size)
+  }
 
   return (
-    <AdminApp>
+    <Styled>
       <AdminBar openLeftSide={handleLeftSide} openWorkspace={handleWorkspace}/>
       <AdminSide open={leftSide}/>
       { workspace &&
-        <Workspace>
-          <Page />
+        <Workspace leftSide={leftSide} onSize={onSizeWorkspace}>
+          <Page size={workspace.size}/>
         </Workspace>
       }
-    </AdminApp>
+    </Styled>
   )
 }
 

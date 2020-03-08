@@ -1,8 +1,12 @@
 import React from 'react'
 import GridLayout from 'react-grid-layout'
 import styled from 'styled-components'
-import './grid-styles.css'
-import './resize-styles.css'
+import '../styles/grid-styles.css'
+import '../styles/resize-styles.css'
+
+const GridLayoutStyled = styled(GridLayout) `
+  background-color: yellow;
+`
 
 class Page extends React.Component {
   render() {
@@ -12,12 +16,8 @@ class Page extends React.Component {
       {i: 'b', x: 1, y: 0, w: 1, h: 1}
     ];
 
-    const GridLayoutStyled = styled(GridLayout) `
-      background-color: yellow;
-    `
-
     return (
-      <GridLayoutStyled className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
+      <GridLayoutStyled className="layout" layout={layout} cols={12} rowHeight={30} width={this.props.size.width}>
         <div key="a">a</div>
         <div key="b">b</div>
       </GridLayoutStyled>
