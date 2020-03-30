@@ -1,0 +1,39 @@
+// abstração geral
+// o block sera o component base do projeto
+// ele consistira de um grid, um layout e os contains
+//
+//grid: o grid será gerado com o react-grid-layout
+//  basicamente ele tera as seguintes configurações:
+//    o numero de colunas será exatamento o numero de pixeis da tela
+//    os layouts que estaram nele logo serão calculado com base nos pixeis
+//    ele será responsivo, logo tera layouts configurados para determinados breakpoints
+//
+//layout: nem só de definição vive um projeto, mas antes de por o conteudo deve-se criar o lugar onde ele irá
+//        cada content será unico ao um layout, mas espere
+//        esse lugar deve ser adaptavel com o ambiente
+//        seja pequeno ou grande, nada poderá ser cortado
+//        ou seja, os layouts serão definidos com base nos breakpoints também
+//        podendo ser fixos ou não
+//        mas terão que respeitar o seu quadrado
+//
+//content: o que é um content?
+//         qualquer coisa que possa caber dentro do layout é um content
+//         qualquer grid criado previamente, com seu proprio layout e content é um content
+//          então, se um content pode ser um grid de contents então ele é um grid de contents de grids de contens e recursivamente vai
+//         SIM, essa é basicamente a abstração da aplicação. Qualquer coisa criada, pode ser reutilizada
+//          Qualquer existencia pode ser encaixada.
+//         Mas existem leis a serem respeitadas
+//          O conteudo deve ter um tamanho minimo, e um maximo
+//        mais coisas seram pensadas, mas antes, que tal dar uma olhada num json -->
+
+const sou_um_json_muito_legal_que_descreve_como_os_dados_estaram_organizados = {
+  grid: {
+    //props_of_grid
+    layout: {
+      //props_of_item_grid
+      content: {
+        //whowami, props of whowami, i
+      }
+    }
+  }
+}
